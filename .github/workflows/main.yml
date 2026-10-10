@@ -29,6 +29,7 @@ jobs:
 
       - name: Build Android APK
         run: |
+          export PATH="$PATH:$FLUTTER_ROOT/bin"
           flet build apk
           
       - name: Upload APK
