@@ -27,10 +27,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install flet edge-tts google-genai pytest
 
-      - name: Build Android APK
+      - name: Configure Flutter Path and Build
         run: |
-          export PATH="$PATH:$FLUTTER_ROOT/bin"
-          flet build apk --no-interactive
+          flutter config --no-analytics
+          flutter doctor
+          flet build apk
           
       - name: Upload APK
         uses: actions/upload-artifact@v4
