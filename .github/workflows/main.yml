@@ -30,7 +30,7 @@ jobs:
       - name: Build Android APK
         run: |
           export PATH="$PATH:$FLUTTER_ROOT/bin"
-          flet build apk
+          flet build apk --no-interactive
           
       - name: Upload APK
         uses: actions/upload-artifact@v4
