@@ -20,6 +20,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
+          flutter-version: '3.44.8' # Flet aynan shu versiyani talab qildi
           channel: 'stable'
 
       - name: Install Python and Flet
@@ -27,10 +28,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install flet edge-tts google-genai pytest
 
-      - name: Configure Flutter Path and Build
+      - name: Configure Flutter and Build
         run: |
           flutter config --no-analytics
-          flutter doctor
           flet build apk
           
       - name: Upload APK
